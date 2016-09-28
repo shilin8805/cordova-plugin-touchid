@@ -18,8 +18,8 @@
     if (NSClassFromString(@"LAContext") != nil)
     {
         LAContext *laContext = [[LAContext alloc] init];
+        [laContext setLocalizedFallbackTitle:@""];
         NSError *authError = nil;
-
         if ([laContext canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&authError])
         {
             [laContext evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:text reply:^(BOOL success, NSError *error)
